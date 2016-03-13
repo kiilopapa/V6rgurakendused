@@ -9,6 +9,9 @@
 			margin-top: -25px;
 
 		}
+		.left {
+			float: left;
+		}
 
 		.row{
 			clear: both;
