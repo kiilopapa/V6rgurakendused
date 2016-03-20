@@ -74,6 +74,15 @@ body {
 	width: 100%;
 }
 </style>
+<script>
+	window.onload = function() {
+	var kogu = document.getElementById("kogu");
+	kogu.onclick=function(){
+		kogu.style.top = Math.random()*300+"px" ;
+		kogu.style.left = Math.random()*500+"px" ;
+	}
+	}
+	</script>
 </head>
 <body>
 <img src="duck.png" id="duck" alt="bg">
@@ -85,6 +94,6 @@ body {
 	<div class="layer"></div>
 	<div class="layer"></div>
 </div>
-
+    
 </body>
 </html>
