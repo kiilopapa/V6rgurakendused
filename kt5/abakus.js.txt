@@ -1,8 +1,0 @@
-window.onload = function() {
-	var beads = document.querySelector(".bead");
-	console.log(beads)
-	//kogu.onclick=function(){
-		//kogu.style.top = Math.random()*300+"px" ;
-		//kogu.style.left = Math.random()*500+"px" ;
-	}
-	}
