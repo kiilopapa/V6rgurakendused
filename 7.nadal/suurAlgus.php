@@ -33,7 +33,6 @@ Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu 
 
 $sections = explode("\n", $text);
 //print_r($sections);
-
 foreach ($sections as $section){
     $sub = substr($section, 1);
     $section = "<span>$section[0]</span>$sub";
