@@ -3,7 +3,18 @@
 <head>
 <meta charset="utf-8" />
 <title>Praktikum  - Ülesanne</title>
+<style type="text/css">
+	.auto {
+		display: inline-block;
+		background-color: skyblue;
+		border-style: ridge;
+		border-radius: 20%;
+		border-width: thick;
+		border-color: deepskyblue;
+	}
+</style>
 </head>
+<body>
 
 
 <?php 
@@ -16,7 +27,9 @@ $autod = array(
 	);
 
 foreach ($autod as $auto) {
+
 	include 'view.php';
+	echo "\n";
 }
 /*echo "<pre>";
 print_r($autod);

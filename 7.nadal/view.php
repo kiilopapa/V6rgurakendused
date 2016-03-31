@@ -1,8 +1,1 @@
-<?php 
-
-$autod = array(
-	array('mark' => 'Audi', 'aasta' => 1988),
-	array('mark' => 'Nissan', 'aasta' => 2000)
-	);
-
-?>
+<p class="auto" ><?php echo ucfirst($auto['värv']);?> <?php echo $auto['mark'];?> aastast <?php echo $auto['aasta'];?>, seisukord on <?php echo $auto['seisukord'];?>.</p>
