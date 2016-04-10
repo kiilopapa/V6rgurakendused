@@ -5,12 +5,20 @@
 	<head>
 		<title>	</title>
 		<meta charset="utf-8" />
+		<style type="text/css">
+
+		</style>
 	
 	</head>
 	<body>
 
 	<?php  
 		$myurl=$_SERVER['PHP_SELF'];
+		$nimi = "";
+
+		if (!empty($_GET["kuvatav"])){
+			$nimi =  $_GET["kuvatav"];
+		}
 
 		$bg_col="#f0f"; // vaikimisi väärtus
 		if (isset($_GET['bg_color']) && $_GET['bg_color']!="") {
@@ -20,7 +28,7 @@
 
 	?>
 
-		<div id="kuva" style="color: <?php echo $bg_col;?>">
+		<div id="kuva" style="background-color : <?php echo $bg_col;?>">
 			<?php 
 				
 				if (!empty($_GET["kuvatav"])){
@@ -35,7 +43,7 @@
 
 
 <form action="<?php echo $myurl?>" method="GET">
-	<input type="text" name="kuvatav" />
+	<input type="text" name="kuvatav" value="<?php echo $nimi;?>" />
 	<input type="color" name="bg_color" value="<?php echo $bg_col;?>">
 	<input type="submit" value="kuva"/>
 </form>
