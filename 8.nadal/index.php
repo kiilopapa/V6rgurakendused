@@ -14,7 +14,7 @@
 
 	<?php  
 		$myurl=$_SERVER['PHP_SELF'];
-		$nimi = "";
+		$nimi = "Siia kirjuta tekst";
 
 		if (!empty($_GET["kuvatav"])){
 			$nimi =  $_GET["kuvatav"];
@@ -44,6 +44,7 @@
 
 <form action="<?php echo $myurl?>" method="GET">
 	<input type="text" name="kuvatav" value="<?php echo $nimi;?>" />
+
 	<input type="color" name="bg_color" value="<?php echo $bg_col;?>">
 	<input type="submit" value="kuva"/>
 </form>
