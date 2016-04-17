@@ -1,5 +1,7 @@
+<?php require_once 'head.html'; ?>
+
 	<h3>Vali oma lemmik :)</h3>
-	<form action="tulemus.html" method="GET">
+	<form action="tulemus.php" method="GET">
 		<p>
 			<label for="p1">
 				<img src="pildid/nameless1.jpg" alt="nimetu 1" height="100" />
@@ -39,3 +41,4 @@
 		<br/>
 		<input type="submit" value="Valin!"/>
 	</form>
+<?php require_once 'foot.html'; ?>
