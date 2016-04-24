@@ -1,3 +1,93 @@
-<code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$text_bg</span><span style="color: #007700">=</span><span style="color: #DD0000">"#fff"</span><span style="color: #007700">;<br />if&nbsp;(isset(</span><span style="color: #0000BB">$_POST</span><span style="color: #007700">[</span><span style="color: #DD0000">'bg'</span><span style="color: #007700">]))&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$text_bg&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">htmlspecialchars</span><span style="color: #007700">(</span><span style="color: #0000BB">$_POST</span><span style="color: #007700">[</span><span style="color: #DD0000">'bg'</span><span style="color: #007700">]);&nbsp;<br /><br /></span><span style="color: #0000BB">$text_color</span><span style="color: #007700">=</span><span style="color: #DD0000">"#fff"</span><span style="color: #007700">;<br />if&nbsp;(isset(</span><span style="color: #0000BB">$_POST</span><span style="color: #007700">[</span><span style="color: #DD0000">'tc'</span><span style="color: #007700">]))&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$text_color&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">htmlspecialchars</span><span style="color: #007700">(</span><span style="color: #0000BB">$_POST</span><span style="color: #007700">[</span><span style="color: #DD0000">'tc'</span><span style="color: #007700">]);&nbsp;<br /><br /></span><span style="color: #0000BB">$border_width&nbsp;</span><span style="color: #007700">=</span><span style="color: #0000BB">2</span><span style="color: #007700">;<br />if&nbsp;(isset(</span><span style="color: #0000BB">$_POST</span><span style="color: #007700">[</span><span style="color: #DD0000">'bw'</span><span style="color: #007700">])&nbsp;)&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$border_width&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">htmlspecialchars</span><span style="color: #007700">(</span><span style="color: #0000BB">$_POST</span><span style="color: #007700">[</span><span style="color: #DD0000">'bw'</span><span style="color: #007700">]);&nbsp;<br /></span><span style="color: #0000BB">$border_style&nbsp;</span><span style="color: #007700">=</span><span style="color: #DD0000">"&nbsp;solid&nbsp;"</span><span style="color: #007700">;<br />if&nbsp;(isset(</span><span style="color: #0000BB">$_POST</span><span style="color: #007700">[</span><span style="color: #DD0000">'bs'</span><span style="color: #007700">])&nbsp;)&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$border_style&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">htmlspecialchars</span><span style="color: #007700">(</span><span style="color: #0000BB">$_POST</span><span style="color: #007700">[</span><span style="color: #DD0000">'bs'</span><span style="color: #007700">]);&nbsp;<br /></span><span style="color: #0000BB">$border_color&nbsp;</span><span style="color: #007700">=</span><span style="color: #DD0000">"&nbsp;black&nbsp;"</span><span style="color: #007700">;<br />if&nbsp;(isset(</span><span style="color: #0000BB">$_POST</span><span style="color: #007700">[</span><span style="color: #DD0000">'bc'</span><span style="color: #007700">])&nbsp;)&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$border_color&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">htmlspecialchars</span><span style="color: #007700">(</span><span style="color: #0000BB">$_POST</span><span style="color: #007700">[</span><span style="color: #DD0000">'bc'</span><span style="color: #007700">]);&nbsp;<br /></span><span style="color: #0000BB">$border</span><span style="color: #007700">=</span><span style="color: #0000BB">$border_color</span><span style="color: #007700">.</span><span style="color: #DD0000">"&nbsp;"</span><span style="color: #007700">.</span><span style="color: #0000BB">$border_style</span><span style="color: #007700">.</span><span style="color: #DD0000">"&nbsp;"</span><span style="color: #007700">.</span><span style="color: #0000BB">$border_width</span><span style="color: #007700">;&nbsp;<br /><br /></span><span style="color: #0000BB">$border_radius&nbsp;</span><span style="color: #007700">=</span><span style="color: #0000BB">10</span><span style="color: #007700">;<br />if&nbsp;(isset(</span><span style="color: #0000BB">$_POST</span><span style="color: #007700">[</span><span style="color: #DD0000">'br'</span><span style="color: #007700">])&nbsp;)&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$border_radius&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">htmlspecialchars</span><span style="color: #007700">(</span><span style="color: #0000BB">$_POST</span><span style="color: #007700">[</span><span style="color: #DD0000">'br'</span><span style="color: #007700">]);<br /><br /></span><span style="color: #0000BB">?&gt;<br /></span>&lt;!DOCTYPE&nbsp;html&gt;<br />&lt;html&gt;<br />&lt;head&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;meta&nbsp;charset="utf-8"&nbsp;/&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;title&gt;Praktikum&nbsp;&nbsp;-&nbsp;Ülesanne&lt;/title&gt;<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;style&nbsp;type="text/css"&gt;<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#text&nbsp;{&nbsp;background:&nbsp;<span style="color: #0000BB">&lt;?php&nbsp;</span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">$text_bg</span><span style="color: #007700">;&nbsp;</span><span style="color: #0000BB">?&gt;</span>;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;color:&nbsp;<span style="color: #0000BB">&lt;?php&nbsp;</span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">$text_color</span><span style="color: #007700">;&nbsp;</span><span style="color: #0000BB">?&gt;</span>;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;border:&nbsp;&nbsp;<span style="color: #0000BB">&lt;?php&nbsp;</span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">$border</span><span style="color: #007700">;&nbsp;</span><span style="color: #0000BB">?&gt;</span>px;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;border-radius:&nbsp;<span style="color: #0000BB">&lt;?php&nbsp;</span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">$border_radius</span><span style="color: #007700">;&nbsp;</span><span style="color: #0000BB">?&gt;</span>px;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;padding:10px;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;min-height:100px;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;max-width:&nbsp;400px;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;/style&gt;<br /><br />&lt;/head&gt;<br />&lt;body&gt;<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #0000BB">&lt;?php&nbsp;<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;$stiilid</span><span style="color: #007700">=array(</span><span style="color: #DD0000">"solid"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"dashed"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"dotted"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"none"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"double"</span><span style="color: #007700">);<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">?&gt;<br /></span><br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&nbsp;id="text"&gt;&nbsp;<span style="color: #0000BB">&lt;?php&nbsp;</span><span style="color: #007700">if&nbsp;(isset(</span><span style="color: #0000BB">$_POST</span><span style="color: #007700">[</span><span style="color: #DD0000">'text'</span><span style="color: #007700">]))&nbsp;echo&nbsp;</span><span style="color: #0000BB">htmlspecialchars</span><span style="color: #007700">(</span><span style="color: #0000BB">$_POST</span><span style="color: #007700">[</span><span style="color: #DD0000">'text'</span><span style="color: #007700">]);&nbsp;</span><span style="color: #0000BB">?&gt;</span>&lt;/div&gt;<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;hr/&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;form&nbsp;method="POST"&nbsp;action="?"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;textarea&nbsp;name="text"&nbsp;placeholder="kommentaari&nbsp;tekst"&gt;&lt;/textarea&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;br/&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;input&nbsp;type="color"&nbsp;name="bg"&nbsp;id="bg"&nbsp;&gt;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;label&nbsp;for="bg"&gt;Taustavärvus&lt;/label&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;br/&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;input&nbsp;type="color"&nbsp;name="tc"&nbsp;id="tc"&nbsp;&gt;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;label&nbsp;for="tc"&gt;Tekstivärvus&lt;/label&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;br/&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;fieldset&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;legend&gt;Piirjoon&lt;/legend&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;input&nbsp;type="number"&nbsp;min="0"&nbsp;max="20"&nbsp;step="1"&nbsp;name="bw"&nbsp;id="bw"&nbsp;&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;label&gt;Piirjoone&nbsp;laius&nbsp;(0-20px)&lt;/label&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;br/&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;select&nbsp;name="bs"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #0000BB">&lt;?php&nbsp;</span><span style="color: #007700">foreach(</span><span style="color: #0000BB">$stiilid&nbsp;</span><span style="color: #007700">as&nbsp;</span><span style="color: #0000BB">$stiil</span><span style="color: #007700">):</span><span style="color: #0000BB">?&gt;<br /></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;option&gt;<span style="color: #0000BB">&lt;?php&nbsp;</span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">$stiil</span><span style="color: #007700">;&nbsp;</span><span style="color: #0000BB">?&gt;</span>&lt;/option&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #0000BB">&lt;?php&nbsp;</span><span style="color: #007700">endforeach;&nbsp;</span><span style="color: #0000BB">?&gt;<br /></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/select&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;br/&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;input&nbsp;type="color"&nbsp;name="bc"&nbsp;id="bc"&nbsp;&gt;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;label&nbsp;for="bc"&gt;Piirjoone&nbsp;värvus&lt;/label&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;br/&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;input&nbsp;type="number"&nbsp;min="0"&nbsp;max="100"&nbsp;step="1"&nbsp;name="br"&nbsp;id="br"&nbsp;&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;label&gt;Piirjoone&nbsp;nurga&nbsp;raadius&nbsp;(0-100px)&lt;/label&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;br/&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/fieldset&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;input&nbsp;type="submit"&nbsp;value="esita"&nbsp;/&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;/form&gt;<br /><br />&lt;/body&gt;<br />&lt;/html&gt;</span>
-</code>
+<?php
+$text_bg="#fff";
+if (isset($_POST['bg'])) 
+    $text_bg = htmlspecialchars($_POST['bg']); 
+
+$text_color="#fff";
+if (isset($_POST['tc'])) 
+    $text_color = htmlspecialchars($_POST['tc']); 
+
+$border_width =2;
+if (isset($_POST['bw']) ) 
+    $border_width = htmlspecialchars($_POST['bw']); 
+$border_style =" solid ";
+if (isset($_POST['bs']) ) 
+    $border_style = htmlspecialchars($_POST['bs']); 
+$border_color =" black ";
+if (isset($_POST['bc']) ) 
+    $border_color = htmlspecialchars($_POST['bc']); 
+$border=$border_color." ".$border_style." ".$border_width; 
+
+$border_radius =10;
+if (isset($_POST['br']) ) 
+    $border_radius = htmlspecialchars($_POST['br']);
+
+?>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Praktikum  - Ülesanne</title>
+
+    <style type="text/css">
+
+        #text { background: <?php echo $text_bg; ?>;
+            color: <?php echo $text_color; ?>;
+            border:  <?php echo $border; ?>px;
+            border-radius: <?php echo $border_radius; ?>px;
+            padding:10px;
+            min-height:100px;
+            max-width: 400px;
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <?php 
+
+    $stiilid=array("solid", "dashed", "dotted", "none", "double");
+
+    ?>
+
+    <div id="text"> <?php if (isset($_POST['text']))
+    	$text=htmlspecialchars($_POST['text']);
+    	echo $text;
+    
+     ?></div>
+
+    <hr/>
+    <form method="POST" action="?">
+        <textarea name="text" placeholder="kommentaari tekst"><?php if (isset($_POST['text'])) echo $text;?>
+        </textarea>
+        <br/>
+        <input type="color" name="bg" id="bg" value="<?php echo $text_bg; ?>"> 
+        <label for="bg">Taustavärvus</label>
+        <br/>
+        <input type="color" name="tc" id="tc" value="<?php echo $text_color; ?>"> 
+        <label for="tc">Tekstivärvus</label>
+        <br/>
+        <fieldset>
+            <legend>Piirjoon</legend>
+            <input type="number" min="0" max="20" step="1" name="bw" id="bw" value="<?php echo $border_width ?>" >
+            <label>Piirjoone laius (0-20px)</label>
+            <br/>
+            <select name="bs" >
+                <?php foreach($stiilid as $stiil):?>
+                    <option <?php if($stiil==$border_style)echo "selected"; ?>><?php echo $stiil; ?></option>
+                <?php endforeach; ?>
+            </select>
+            <br/>
+            <input type="color" name="bc" id="bc" value="<?php echo $border_color ?>" > 
+            <label for="bc">Piirjoone värvus</label>
+            <br/>
+            <input type="number" min="0" max="100" step="1" name="br" id="br" value="<?php echo $border_radius ?>">
+            <label>Piirjoone nurga raadius (0-100px)</label>
+            <br/>
+        </fieldset>
+        <input type="submit" value="esita" />
+    </form>
+
+</body>
+</html>
