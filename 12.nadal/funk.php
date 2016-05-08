@@ -25,6 +25,23 @@ function logout(){
 
 function kuva_puurid(){
 	// siia on vaja funktsionaalsust
+	global $connection;
+	$puurid;
+
+	$sql = "SELECT DISTINCT puur FROM k_loomaaed";
+
+	$result = mysqli_query($connection, $sql) or die ("$sql - ".mysqli_error($connection));
+
+	while ( $row = mysqli_fetch_array($result)) {
+		$loomasql = "SELECT * FROM k_loomaaed WHERE puur=".mysqli_real_escape_string($connection, $row['puur']);
+		$loomaq = mysqli_query($connection, $loomasql);
+		while ($puuriloom=mysqli_fetch_assoc($loomaq)) {
+					$puurid[$row["puur"]][]=$puuriloom;
+		}
+	}
+	echo "<pre>";
+	print_r($puurid);
+	echo "</pre>";
 
 	include_once('views/puurid.html');
 	
