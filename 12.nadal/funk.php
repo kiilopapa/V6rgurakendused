@@ -39,10 +39,7 @@ function kuva_puurid(){
 					$puurid[$row["puur"]][]=$puuriloom;
 		}
 	}
-	echo "<pre>";
-	print_r($puurid);
-	echo "</pre>";
-
+	
 	include_once('views/puurid.html');
 	
 }
