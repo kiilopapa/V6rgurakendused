@@ -13,6 +13,9 @@ function connect_db(){
 
 function logi(){
 	// siia on vaja funktsionaalsust (13. nädalal)
+	if (isset($_SESSION['user'])) {
+		header("Location: ?page=loomad");
+	}
 
 	include_once('views/login.html');
 }
