@@ -17,9 +17,19 @@ function logi(){
 		header("Location: ?page=loomad");
 	}
 
+	$errors = array();
+	$user="";
+	$pass="";
 	if ($_SERVER['REQUEST_METHOD']=="POST") {
 		if (isset($_POST[user])) {
-			echo $user;
+			$user = htmlspecialchars($_POST[user]);
+		} else {
+			$errors[nousername] = "Kasutajanimi sisestamata";
+		}
+		if (isset($_POST[pass])) {
+			$pass = htmlspecialchars($_POST[pass]);
+		} else {
+			$errors[nousername] = "Kasutajanimi sisestamata";
 		}
 	}
 
