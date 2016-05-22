@@ -12,31 +12,47 @@ function connect_db(){
 }
 
 function logi(){
-	// siia on vaja funktsionaalsust (13. nädalal)
+	global $connection;
 	if (isset($_SESSION['user'])) {
 		header("Location: ?page=loomad");
+		exit(0);
 	}
 
 	$errors = array();
 	$user="";
 	$pass="";
 	if ($_SERVER['REQUEST_METHOD']=="POST") {
-		if (isset($_POST[user])) {
-			$user = htmlspecialchars($_POST[user]);
+		if (isset($_POST['user']) && $_POST['user'] !="") {
+			$user =htmlspecialchars($_POST['user']);
 		} else {
-			$errors[nousername] = "Kasutajanimi sisestamata";
+			$errors[] = "Kasutajanimi sisestamata";
 		}
-		if (isset($_POST[pass])) {
-			$pass = htmlspecialchars($_POST[pass]);
+		if (isset($_POST['pass']) && $_POST['pass'] !="") {
+			$pass = htmlspecialchars($_POST['pass']);
 		} else {
-			$errors[nousername] = "Kasutajanimi sisestamata";
+			$errors[] = "Parool sisestamata";
 		}
+
+		$user = mysqli_real_escape_string($connection, $user);
+		$pass = mysqli_real_escape_string($connection, $pass);
+
+		if (empty($errors)) {
+			echo "string";
+
+			$sql = "SELECT * FROM k_kylastajad WHERE username = '$user' AND passw = sha1('$pass')";
+	
+			$query = mysqli_query($connection, $sql)  or die ("$sql - ".mysqli_error($connection));
+
+			/*echo "<pre>";
+			print_r($query);
+			echo "</pre>";
+			*/
+		}
+
 	}
 
-	/*echo "<pre>";
-	print_r($_SERVER);
-	echo "</pre>";
-	*/
+
+	
 
 	include_once('views/login.html');
 }
