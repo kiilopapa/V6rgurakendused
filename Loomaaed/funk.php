@@ -17,6 +17,17 @@ function logi(){
 		header("Location: ?page=loomad");
 	}
 
+	if ($_SERVER['REQUEST_METHOD']=="POST") {
+		if (isset($_POST[user])) {
+			echo $user;
+		}
+	}
+
+	/*echo "<pre>";
+	print_r($_SERVER);
+	echo "</pre>";
+	*/
+
 	include_once('views/login.html');
 }
 
