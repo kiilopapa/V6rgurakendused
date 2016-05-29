@@ -1,4 +1,4 @@
-#sisse {
+#entry {
 	background: url('pildid/v2rav.png') no-repeat center;
 	display: inline-block;
 	width: 100%;
@@ -49,6 +49,7 @@ body {
 	width: 35%;	
 	margin-top:25%;
 }
+
 .puur {
 	border: dashed grey 2px;
 	margin:20px;
@@ -65,4 +66,8 @@ body {
 }
 .clear {
 	clear:both;
+}
+
+.error {
+	color: red;
 }

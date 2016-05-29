@@ -30,9 +30,13 @@ switch($page){
 	case "hosts":
 		show_hosts();
 		break;
+
+	case "history":
+		show_history();
+		break;
 	
 	default:
-		include_once('views/v2rav.html');
+		include_once('views/main.html');
 	break;
 }
 
