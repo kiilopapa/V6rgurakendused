@@ -1,5 +1,5 @@
 <?php
-require_once('funk.php');
+require_once('func.php');
 session_start();
 connect_db();
 
@@ -12,17 +12,25 @@ include_once('views/head.html');
 
 switch($page){
 	case "login":
-		logi();
+		login();
 	break;
-	case "loomad":
-		kuva_puurid();
-	break;
+	
 	case "logout":
 		logout();
+		break;
+	
+	case "visitors":
+		show_visitors();
 	break;
-	case "lisa":
-		lisa();
+
+	case "register":
+		register();
 	break;
+
+	case "hosts":
+		show_hosts();
+		break;
+	
 	default:
 		include_once('views/v2rav.html');
 	break;
