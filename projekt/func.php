@@ -54,7 +54,7 @@ function logout(){
 	header("Location: ?");
 }
 
-function kuva_puurid(){
+function show_visitors(){
 	// siia on vaja funktsionaalsust
 	global $connection;
 	$puurid;
