@@ -6,10 +6,64 @@ function main(){
 		header("Location: ?page=login");
 		exit(0);
 	}
+
+	if ($_SERVER['REQUEST_METHOD']=="POST") {
+		
+		$errors = Array();
+		$requiredInputs = ["visitor_name" => "visitor name", "visitor_surname" =>"visitor surname", "visitor_card_nr"=>"visitor card number", 
+    "host_name"=>"host name"];
+		
+		foreach ($requiredInputs as $required=>$input){
+			if (isset($_POST[$required]) && $_POST[$required] !="") {
+				$requiredInputs[$required]= htmlspecialchars($_POST[$required]);
+				//$$required = htmlspecialchars($_POST[$required]);
+			}else {
+				$errors[] = htmlspecialchars($input). " is missing.";
+			}
+
+		}
+		
+		if (empty($errors)) {
+			global $connection;
+
+			$visitorName = mysqli_real_escape_string($connection, $requiredInputs['visitor_name']);
+			$visitorSurname = mysqli_real_escape_string($connection, $requiredInputs['visitor_surname']);
+			$visitorCard = mysqli_real_escape_string($connection, $requiredInputs['visitor_card_nr']);
+			$host = mysqli_real_escape_string($connection, $requiredInputs['host_name']);
+
+			$sql = "SELECT id FROM 1010_visitors WHERE name = '$visitorName' AND surname = '$visitorSurname'";
+
+			$visitorId = queryRow($sql)[0];
+
+			if (!isset($visitorId)){
+				$visitorId = addVisitor($visitorName, $visitorSurname);
+			}
+
+			addVisit($visitorId, $visitorCard, $host);
+		}
+
+
+
+		echo "<pre>";
+		print_r($requiredInputs);
+		print_r($errors);
+		echo "</pre>";
+
+	}
+
+
+
 	$hosts = getHosts();
 	
 	
 	include_once ('views/main.html');
+}
+
+function addVisit($visitorId, $visitorCard, $host)
+{
+	$sql = "INSERT INTO test.1010_visits ( visitor_id, host_id, visitor_card) VALUES ('$visitorId', '$host', '$visitorCard')";
+	$id = insertRow($sql);
+	return $id;
 }
 
 function getHosts(){
@@ -18,7 +72,14 @@ function getHosts(){
 	
 	$sql = "SELECT * FROM 1010_hosts";
 
-	return queryarray($sql);
+	return queryArray($sql);
+}
+
+function addVisitor($name, $surname){
+
+	$sql = "INSERT INTO test.1010_visitors ( name, surname) VALUES ('$name', '$surname')";
+	$id= insertRow($sql);
+	return $id;
 }
 
 function login(){
@@ -47,7 +108,6 @@ function login(){
 		$pass = mysqli_real_escape_string($connection, $pass);
 
 		if (empty($errors)) {
-			echo "string";
 
 			$sql = "SELECT * FROM 1010_users WHERE username = '$user' AND password = sha1('$pass')";
 	
@@ -86,23 +146,15 @@ function logout(){
 }
 
 function show_hosts(){
-	// siia on vaja funktsionaalsust
 	global $connection;
-
-
-	//$hosts = Array();
-
-	//$sql = "SELECT * FROM 1010_hosts";
-
-	//$hosts = queryarray($sql);
-	
+		
 	$hosts = getHosts();
 
-	echo "<pre>";
-	print_r($hosts);
-	echo "</pre>";
+	//echo "<pre>";
+	//print_r($hosts);
+	//echo "</pre>";
 	
-	//include_once('views/hosts.html');
+	include_once('views/hosts.html');
 	
 }
 

@@ -17,7 +17,7 @@ function connect_db(){
     mysqli_query($connection, "SET CHARACTER SET UTF8") or die("could not set utf-8 - ".mysqli_error($connection));
 }
 
-function queryarray($query){
+function queryArray($query){
     global $connection;
 
     $result = mysqli_query($connection, $query) or die ("$query - ".mysqli_error($connection));
@@ -28,4 +28,20 @@ function queryarray($query){
     }
     return $answer;
 }
+
+function queryRow($query){
+    global $connection;
+    
+    $result = mysqli_query($connection, $query) or die ("$query - ".mysqli_error($connection));
+    $row = mysqli_fetch_row($result);
+    return $row;
+}
+
+function insertRow($query){
+    global $connection;
+    echo $query;
+    mysqli_query($connection, $query) or die ("$query - ".mysqli_error($connection));
+    return mysqli_insert_id($connection);
+}
+
 ?>
