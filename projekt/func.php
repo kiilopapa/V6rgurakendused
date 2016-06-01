@@ -35,14 +35,16 @@ function login(){
 			$query = mysqli_query($connection, $sql)  or die ("$sql - ".mysqli_error($connection));
 			
 			if (mysqli_num_rows($query)>0){
+				$login = mysqli_fetch_array($query);
 				session_start();
 				$_SESSION['user'] = $user;
+				$_SESSION['role'] = $login['role'];
 
 				header("Location: ?page=hosts");
 				exit(0);
 			}
-			
-			
+
+
 			/*echo "<pre>";
 			print_r($query);
 			print_r($_SESSION);
