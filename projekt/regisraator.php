@@ -19,8 +19,8 @@ switch($page){
 		logout();
 		break;
 	
-	case "visitors":
-		show_visitors();
+	case "hosts":
+		show_hosts();
 	break;
 
 	case "register":

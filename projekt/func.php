@@ -5,7 +5,7 @@ require_once ('database.php');
 function login(){
 	global $connection;
 	if (isset($_SESSION['user'])) {
-		header("Location: ?page=visitors");
+		header("Location: ?page=hosts");
 		exit(0);
 	}
 
@@ -30,12 +30,22 @@ function login(){
 		if (empty($errors)) {
 			echo "string";
 
-			$sql = "SELECT * FROM k_kylastajad WHERE username = '$user' AND passw = sha1('$pass')";
+			$sql = "SELECT * FROM 1010_users WHERE username = '$user' AND password = sha1('$pass')";
 	
 			$query = mysqli_query($connection, $sql)  or die ("$sql - ".mysqli_error($connection));
+			
+			if (mysqli_num_rows($query)>0){
+				session_start();
+				$_SESSION['user'] = $user;
 
+				header("Location: ?page=hosts");
+				exit(0);
+			}
+			
+			
 			/*echo "<pre>";
 			print_r($query);
+			print_r($_SESSION);
 			echo "</pre>";
 			*/
 		}
@@ -54,24 +64,20 @@ function logout(){
 	header("Location: ?");
 }
 
-function show_visitors(){
+function show_hosts(){
 	// siia on vaja funktsionaalsust
 	global $connection;
-	$puurid;
+	$hosts = Array();
 
-	$sql = "SELECT DISTINCT puur FROM k_loomaaed";
+	$sql = "SELECT * FROM 1010_hosts";
 
-	$result = mysqli_query($connection, $sql) or die ("$sql - ".mysqli_error($connection));
+	$hosts = queryarray($sql);
 
-	while ( $row = mysqli_fetch_array($result)) {
-		$loomasql = "SELECT * FROM k_loomaaed WHERE puur=".mysqli_real_escape_string($connection, $row['puur']);
-		$loomaq = mysqli_query($connection, $loomasql);
-		while ($puuriloom=mysqli_fetch_assoc($loomaq)) {
-					$puurid[$row["puur"]][]=$puuriloom;
-		}
-	}
+	echo "<pre>";
+	print_r($hosts);
+	echo "</pre>";
 	
-	include_once('views/puurid.html');
+	//include_once('views/hosts.html');
 	
 }
 

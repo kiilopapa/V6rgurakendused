@@ -13,7 +13,19 @@ function connect_db(){
     $user="test";
     $pass="t3st3r123";
     $db="test";
-    $connection = mysqli_connect($host, $user, $pass, $db) or die("ei saa ühendust mootoriga- ".mysqli_error());
-    mysqli_query($connection, "SET CHARACTER SET UTF8") or die("Ei saanud baasi utf-8-sse - ".mysqli_error($connection));
+    $connection = mysqli_connect($host, $user, $pass, $db) or die("can't connect with engine- ".mysqli_error($connection));
+    mysqli_query($connection, "SET CHARACTER SET UTF8") or die("could not set utf-8 - ".mysqli_error($connection));
+}
+
+function queryarray($query){
+    global $connection;
+
+    $result = mysqli_query($connection, $query) or die ("$query - ".mysqli_error($connection));
+
+    $answer = Array();
+    while ( $row = mysqli_fetch_array($result)) {
+        $answer[] = $row;    
+    }
+    return $answer;
 }
 ?>
