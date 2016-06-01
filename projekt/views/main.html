@@ -1,1 +1,31 @@
-<a href="?page=visitors" id="entry">Enter</a>
+
+<div id="addvisitor">
+    <table>
+        <caption>Register visitor</caption>
+        <tr>
+        <td>Visitors firstname</td>
+        <td><input type="text" name="visitor_name" placeholder="firstname" form="addvisit" /></td>
+        </tr>
+        <tr>
+        <td>Visitors surname</td>
+        <td><input type="text" name="visitor_surname" placeholder="surname" form="addvisit" /></td>
+        </tr>
+        <tr>
+        <td>Visitors card nr</td>
+        <td><input type="text" name="visitor_card_nr" placeholder="nr" form="addvisit" /></td>
+        </tr>
+        <tr>
+        <td>Host name</td>
+            <td><select name="host_name" form="addvisit" />
+                <?php foreach($hosts as $host): ?>
+                <option value="<?php echo $host['id']; ?>"><?php echo htmlspecialchars($host['name']). ' '. htmlspecialchars($host['surname']); ?></option>
+                <?php endforeach; ?>
+
+            </select></td>
+        </tr>
+    </table>
+    <form action="?main" method="POST" id="addvisit">
+        <input type="submit" value="register"/>
+    </form>
+
+</div>

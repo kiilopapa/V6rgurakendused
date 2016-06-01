@@ -23,8 +23,8 @@ switch($page){
 		show_hosts();
 	break;
 
-	case "register":
-		register();
+	case "main":
+		main();
 	break;
 
 	case "hosts":
@@ -36,7 +36,7 @@ switch($page){
 		break;
 	
 	default:
-		include_once('views/main.html');
+		main();
 	break;
 }
 

@@ -1,11 +1,30 @@
 <?php
 require_once ('database.php');
 
+function main(){
+	if (!isset($_SESSION['user'])) {
+		header("Location: ?page=login");
+		exit(0);
+	}
+	$hosts = getHosts();
+	
+	
+	include_once ('views/main.html');
+}
+
+function getHosts(){
+	
+	global $connection;
+	
+	$sql = "SELECT * FROM 1010_hosts";
+
+	return queryarray($sql);
+}
 
 function login(){
 	global $connection;
 	if (isset($_SESSION['user'])) {
-		header("Location: ?page=hosts");
+		header("Location: ?page=main");
 		exit(0);
 	}
 
@@ -40,7 +59,7 @@ function login(){
 				$_SESSION['user'] = $user;
 				$_SESSION['role'] = $login['role'];
 
-				header("Location: ?page=hosts");
+				header("Location: ?page=main");
 				exit(0);
 			}
 
@@ -69,11 +88,15 @@ function logout(){
 function show_hosts(){
 	// siia on vaja funktsionaalsust
 	global $connection;
-	$hosts = Array();
 
-	$sql = "SELECT * FROM 1010_hosts";
 
-	$hosts = queryarray($sql);
+	//$hosts = Array();
+
+	//$sql = "SELECT * FROM 1010_hosts";
+
+	//$hosts = queryarray($sql);
+	
+	$hosts = getHosts();
 
 	echo "<pre>";
 	print_r($hosts);
