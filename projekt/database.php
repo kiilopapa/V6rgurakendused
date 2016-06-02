@@ -39,7 +39,6 @@ function queryRow($query){
 
 function insertRow($query){
     global $connection;
-    echo $query;
     mysqli_query($connection, $query) or die ("$query - ".mysqli_error($connection));
     return mysqli_insert_id($connection);
 }

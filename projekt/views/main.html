@@ -29,3 +29,30 @@
     </form>
 
 </div>
+
+<div id="visitorsInside">
+    <?php if (empty($visitors)):?>
+    <p class = nothing>No visitors</p>
+    <?php endif;?>
+
+    <?php foreach($visits as $index=>$visit) : ?>
+
+    <table>
+        <caption> Visitors inside </caption>
+        <tr>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+
+
+    </table>
+
+    <div>
+        <p><?php $i=$index +1 ;echo htmlspecialchars($i). '. ' . htmlspecialchars($host['name']) . ' ' . htmlspecialchars($host['surname']); ?></p>
+    </div>
+    <?php endforeach; ?>
+
+</div>

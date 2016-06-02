@@ -42,11 +42,9 @@ function main(){
 			addVisit($visitorId, $visitorCard, $host);
 		}
 
-
-
 		echo "<pre>";
-		print_r($requiredInputs);
-		print_r($errors);
+		//print_r($requiredInputs);
+		//print_r($errors);
 		echo "</pre>";
 
 	}
@@ -54,9 +52,38 @@ function main(){
 
 
 	$hosts = getHosts();
-	
+	$visits = getVisits();
+
+	foreach ($visits as $id => $visit) {
+		$visits[$id]['visitor_name'] = getVisitorName($visit['visitor_id']);
+		$visits[$id]['host_name'] = getHostName($visit['host_id']);
+	}
+
+	echo "<pre>";
+	print_r($visits);
+	//print_r($errors);
+	echo "</pre>";
 	
 	include_once ('views/main.html');
+}
+
+function getHostName($id){
+	$sql = "SELECT name, surname FROM 1010_hosts WHERE id = '$id'";
+	$host = queryRow($sql);
+	$name = $host[0]. " ". $host[1];
+	return $name;
+
+}function getVisitorName($id){
+	$sql = "SELECT name, surname FROM 1010_visitors WHERE id = '$id'";
+	$visitor = queryRow($sql);
+	$name = $visitor[0]. " ". $visitor[1];
+	//echo $name;
+	return $name;
+}
+
+function getVisits(){
+	$sql = "SELECT * FROM 1010_visits";
+	return queryArray($sql);
 }
 
 function addVisit($visitorId, $visitorCard, $host)
