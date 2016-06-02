@@ -1,5 +1,5 @@
-<div id="addvisitor" xmlns:htmlspecialchars>
-    <table>
+<div>
+    <table id="addvisitor">
         <caption>Register visitor</caption>
         <tr>
         <td>Visitors firstname</td>
@@ -22,10 +22,15 @@
 
             </select></td>
         </tr>
+        <tr>
+            <td></td>
+            <td >
+                <form action="?main" method="POST" id="addvisit">
+                <input type="submit" value="register"/>
+                </form>
+            </td></tr>
     </table>
-    <form action="?main" method="POST" id="addvisit">
-        <input type="submit" value="register"/>
-    </form>
+
 
 </div>
 
