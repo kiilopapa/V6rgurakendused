@@ -1,5 +1,4 @@
-
-<div id="addvisitor">
+<div id="addvisitor" xmlns:htmlspecialchars>
     <table>
         <caption>Register visitor</caption>
         <tr>
@@ -45,14 +44,16 @@
             <th>Visitor card</th>
             <th>Host</th>
             <th>Time of entry</th>
+            <th></th>
         </tr>
         <?php foreach($visits as $index=>$visit) : ?>
             <tr>
-                <td><?php echo htmlspecialchars($index) ; ?></td>
+                <td><?php $i=$index+1; echo htmlspecialchars($i) ; ?></td>
                 <td><?php echo htmlspecialchars($visit['visitor_name']); ?></td>
                 <td><?php echo htmlspecialchars($visit['visitor_card']); ?></td>
                 <td><?php echo htmlspecialchars($visit['host_name']); ?></td>
                 <td><?php echo htmlspecialchars($visit['time_entered']); ?></td>
+                <td><a href="?page=checkout&id=<?php echo htmlspecialchars($visit['id']) ; ?>">Check out</a> </td>
             </tr>
         <?php endforeach; ?>
     </table>

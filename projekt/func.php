@@ -1,6 +1,23 @@
 <?php
 require_once ('database.php');
 
+function checkOut(){
+	echo "<pre>";
+	//print_r($_GET);
+	//print_r($errors);
+	echo "</pre>";
+	if (!isset($_GET['id'])&& !is_numeric('id')) echo "Check out failed";
+
+	global $connection;
+	$sql = "UPDATE 1010_visits SET time_of_exit=NOW() WHERE id=".mysqli_real_escape_string($connection, $_GET['id']);
+	
+	update($sql);
+	
+	main();
+	
+	
+}
+
 function main(){
 	if (!isset($_SESSION['user'])) {
 		header("Location: ?page=login");
@@ -83,7 +100,7 @@ function getVisitorName($id){
 }
 
 function getVisits(){
-	$sql = "SELECT * FROM 1010_visits";
+	$sql = "SELECT * FROM 1010_visits WHERE time_of_exit = '0000-00-00 00:00:00'";
 	return queryArray($sql);
 }
 

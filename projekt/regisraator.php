@@ -3,9 +3,12 @@ require_once('func.php');
 session_start();
 connect_db();
 
-$page="pealeht";
+$page="main";
 if (isset($_GET['page']) && $_GET['page']!=""){
 	$page=htmlspecialchars($_GET['page']);
+}
+if (!isset($_SESSION['user'])) {
+	$page="login";
 }
 
 include_once('views/head.html');
@@ -26,6 +29,10 @@ switch($page){
 	case "main":
 		main();
 	break;
+	
+	case "checkout":
+		checkOut();
+	break;	
 
 	case "hosts":
 		show_hosts();

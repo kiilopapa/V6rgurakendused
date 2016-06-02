@@ -43,4 +43,10 @@ function insertRow($query){
     return mysqli_insert_id($connection);
 }
 
+function update($query){
+    global $connection;
+    mysqli_query($connection, $query) or die ("$query - ".mysqli_error($connection));
+
+}
+
 ?>
