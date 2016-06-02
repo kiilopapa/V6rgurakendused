@@ -4,9 +4,13 @@
 	padding:235px 0px;
 	text-align: center;
 	text-decoration: none;
-	color: #ff5230;
+	color: dimgray;
 	font-weight: bold;
 	font-size: 30px;
+}
+
+#visitorsInside {
+	text-align: center;
 }
 
 p {

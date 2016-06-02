@@ -30,29 +30,32 @@
 
 </div>
 
-<div id="visitorsInside">
-    <?php if (empty($visitors)):?>
+<div>
+    <?php if (empty($visits)):?>
     <p class = nothing>No visitors</p>
     <?php endif;?>
 
-    <?php foreach($visits as $index=>$visit) : ?>
 
-    <table>
+
+    <table id="visitorsInside">
         <caption> Visitors inside </caption>
         <tr>
             <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
+            <th>Visitor name</th>
+            <th>Visitor card</th>
+            <th>Host</th>
+            <th>Time of entry</th>
         </tr>
-
-
+        <?php foreach($visits as $index=>$visit) : ?>
+            <tr>
+                <td><?php echo htmlspecialchars($index) ; ?></td>
+                <td><?php echo htmlspecialchars($visit['visitor_name']); ?></td>
+                <td><?php echo htmlspecialchars($visit['visitor_card']); ?></td>
+                <td><?php echo htmlspecialchars($visit['host_name']); ?></td>
+                <td><?php echo htmlspecialchars($visit['time_entered']); ?></td>
+            </tr>
+        <?php endforeach; ?>
     </table>
 
-    <div>
-        <p><?php $i=$index +1 ;echo htmlspecialchars($i). '. ' . htmlspecialchars($host['name']) . ' ' . htmlspecialchars($host['surname']); ?></p>
-    </div>
-    <?php endforeach; ?>
 
 </div>
