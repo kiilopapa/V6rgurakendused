@@ -141,12 +141,12 @@ function login(){
 		if (isset($_POST['user']) && $_POST['user'] !="") {
 			$user =htmlspecialchars($_POST['user']);
 		} else {
-			$errors[] = "Kasutajanimi sisestamata";
+			$errors[] = "No username";
 		}
 		if (isset($_POST['pass']) && $_POST['pass'] !="") {
 			$pass = htmlspecialchars($_POST['pass']);
 		} else {
-			$errors[] = "Parool sisestamata";
+			$errors[] = "No Password";
 		}
 
 		$user = mysqli_real_escape_string($connection, $user);
@@ -165,16 +165,18 @@ function login(){
 				$_SESSION['role'] = $login['role'];
 
 				header("Location: ?page=main");
-				exit(0);
+				//exit(0);
 			}
-
-
+			$errors[] = "Wrong username or password!";
+			
+			
 			/*echo "<pre>";
 			print_r($query);
 			print_r($_SESSION);
 			echo "</pre>";
 			*/
 		}
+		
 
 	}
 
