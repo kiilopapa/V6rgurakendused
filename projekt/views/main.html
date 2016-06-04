@@ -29,6 +29,15 @@
                 <input type="submit" value="register"/>
                 </form>
             </td></tr>
+        <tr>
+            <td colspan="2">
+                <?php if (isset($errors)):?>
+                <?php foreach($errors as $error):?>
+                <div class="error" ><?php echo htmlspecialchars($error); ?></div>
+                <?php endforeach;?>
+                <?php endif;?>
+            </td>
+        </tr>
     </table>
 
 
