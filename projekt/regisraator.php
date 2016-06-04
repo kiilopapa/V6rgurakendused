@@ -34,12 +34,12 @@ switch($page){
 		checkOut();
 	break;	
 
-	case "hosts":
-		show_hosts();
+	case "mhosts":
+		manageHosts();
 		break;
 
-	case "history":
-		show_history();
+	case "rhost":
+		removeHost();
 		break;
 	
 	default:

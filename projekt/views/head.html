@@ -14,8 +14,8 @@
 		<?php if(isset($_SESSION['user'])): ?>
 			<li><a href="?page=hosts">Hosts</a></li>
 			<?php if($_SESSION['role']=="admin"): ?>
-				<li><a href="?page=manhosts">Manage hosts</a></li>
-				<li><a href="?page=manusers">Manage users</a></li>
+				<li><a href="?page=mhosts">Manage hosts</a></li>
+				<li><a href="?page=musers">Manage users</a></li>
 			<?php endif; ?>
 			<li><a href="?page=logout">Log out</a></li>
 		<?php else: ?>

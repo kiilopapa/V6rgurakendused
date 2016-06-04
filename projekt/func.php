@@ -84,6 +84,29 @@ function main(){
 	include_once ('views/main.html');
 }
 
+function manageHosts(){
+	$hosts = getHosts();
+	
+	
+	//include_once ('views/hosts.html');
+	include_once ('views/mhosts.html');
+		
+}
+
+function removeHost(){
+
+	if (!isset($_GET['id'])&& !is_numeric($_GET['id'])) echo "can't remove host ". $_GET['id'];
+
+	global $connection;
+	$sql = "UPDATE 1010_hosts SET deleted=TRUE WHERE id=".mysqli_real_escape_string($connection, $_GET['id']);
+
+	update($sql);
+
+	manageHosts();
+
+}
+
+
 function getHostN($id){
 	$sql = "SELECT name, surname FROM 1010_hosts WHERE id = '$id'";
 	$host = queryRow($sql);
@@ -115,7 +138,7 @@ function getHosts(){
 	
 	global $connection;
 	
-	$sql = "SELECT * FROM 1010_hosts";
+	$sql = "SELECT * FROM 1010_hosts WHERE deleted=FALSE ";
 
 	return queryArray($sql);
 }
@@ -205,38 +228,6 @@ function show_hosts(){
 	
 }
 
-function lisa(){
-	// siia on vaja funktsionaalsust (13. nädalal)
-	
-}
 
-function upload($name){
-	$allowedExts = array("jpg", "jpeg", "gif", "png");
-	$allowedTypes = array("image/gif", "image/jpeg", "image/png","image/pjpeg");
-	$extension = end(explode(".", $_FILES[$name]["name"]));
-
-	if ( in_array($_FILES[$name]["type"], $allowedTypes)
-		&& ($_FILES[$name]["size"] < 100000)
-		&& in_array($extension, $allowedExts)) {
-    // fail õiget tüüpi ja suurusega
-		if ($_FILES[$name]["error"] > 0) {
-			$_SESSION['notices'][]= "Return Code: " . $_FILES[$name]["error"];
-			return "";
-		} else {
-      // vigu ei ole
-			if (file_exists("pildid/" . $_FILES[$name]["name"])) {
-        // fail olemas ära uuesti lae, tagasta failinimi
-				$_SESSION['notices'][]= $_FILES[$name]["name"] . " juba eksisteerib. ";
-				return "pildid/" .$_FILES[$name]["name"];
-			} else {
-        // kõik ok, aseta pilt
-				move_uploaded_file($_FILES[$name]["tmp_name"], "pildid/" . $_FILES[$name]["name"]);
-				return "pildid/" .$_FILES[$name]["name"];
-			}
-		}
-	} else {
-		return "";
-	}
-}
 
 ?>

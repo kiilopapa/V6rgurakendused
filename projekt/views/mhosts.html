@@ -1,0 +1,21 @@
+<?php if (empty($hosts)):?>
+<p class = nothing>No hosts</p>
+<?php endif;?>
+
+<table id="manage_hosts">
+    <caption> Hosts </caption>
+    <tr>
+        <th></th>
+        <th>Firstname</th>
+        <th>Surname</th>
+        <th></th>
+    </tr>
+    <?php foreach($hosts as $index=>$host) : ?>
+    <tr>
+        <td><?php $i=$index+1; echo htmlspecialchars($i) ; ?></td>
+        <td><?php echo htmlspecialchars($host['name']); ?></td>
+        <td><?php echo htmlspecialchars($host['surname']); ?></td>
+        <td><a href="?page=rhost&id=<?php echo htmlspecialchars($host['id']) ; ?>">Remove</a> </td>
+    </tr>
+    <?php endforeach; ?>
+</table>
