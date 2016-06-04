@@ -15,7 +15,27 @@
         <td><?php $i=$index+1; echo htmlspecialchars($i) ; ?></td>
         <td><?php echo htmlspecialchars($host['name']); ?></td>
         <td><?php echo htmlspecialchars($host['surname']); ?></td>
-        <td><a href="?page=rhost&id=<?php echo htmlspecialchars($host['id']) ; ?>">Remove</a> </td>
+        <td><a href="?page=removeHost&id=<?php echo htmlspecialchars($host['id']) ; ?>">Remove</a> </td>
     </tr>
     <?php endforeach; ?>
+    <tr>
+        <td></td>
+        <td><input type="text" name="name" placeholder="firstname" form="addHost" /></td>
+        <td><input type="text" name="surname" placeholder="surname" form="addHost" /></td>
+        <td>
+            <form action="?page=addHost" method="POST" id="addHost">
+                <input type="submit" value="add"/>
+            </form>
+        </td>
+    </tr>
+    <tr>
+        <td></td>
+        <td colspan="2">
+            <?php if (isset($errors)):?>
+            <?php foreach($errors as $error):?>
+            <div class="error" ><?php echo htmlspecialchars($error); ?></div>
+            <?php endforeach;?>
+            <?php endif;?>
+        </td>
+    </tr>
 </table>

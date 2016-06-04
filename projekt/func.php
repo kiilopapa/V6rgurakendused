@@ -106,6 +106,40 @@ function removeHost(){
 
 }
 
+function addHost()
+{
+
+    global $connection;
+    $errors = array();
+    
+
+    if ($_SERVER['REQUEST_METHOD'] == "POST") {
+        if (isset($_POST['name']) && $_POST['name'] != "") {
+            $name = htmlspecialchars($_POST['name']);
+        } else {
+            $errors[] = "No firstname";
+        }
+        if (isset($_POST['surname']) && $_POST['surname'] != "") {
+            $surname = htmlspecialchars($_POST['surname']);
+        } else {
+            $errors[] = "No surname";
+        }
+
+        if (empty($errors)) {
+
+            $name = mysqli_real_escape_string($connection, $name);
+            $surname = mysqli_real_escape_string($connection, $surname);
+
+            $sql = "INSERT INTO test.1010_hosts ( name, surname) VALUES ('$name', '$surname')";
+            insertRow($sql);
+        }
+        //echo "<pre>";
+        //print_r($errors);
+        //print_r($_POST);
+        //echo "</pre>";
+        manageHosts();
+    }
+}
 
 function getHostN($id){
 	$sql = "SELECT name, surname FROM 1010_hosts WHERE id = '$id'";

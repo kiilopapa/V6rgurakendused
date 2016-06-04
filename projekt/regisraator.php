@@ -7,6 +7,9 @@ $page="main";
 if (isset($_GET['page']) && $_GET['page']!=""){
 	$page=htmlspecialchars($_GET['page']);
 }
+if (isset($_POST['page']) && $_POST['page']!=""){
+	$page=htmlspecialchars($_POST['page']);
+}
 if (!isset($_SESSION['user'])) {
 	$page="login";
 }
@@ -38,8 +41,12 @@ switch($page){
 		manageHosts();
 		break;
 
-	case "rhost":
+	case "removeHost":
 		removeHost();
+		break;
+	
+	case "addHost":
+		addHost();
 		break;
 	
 	default:
