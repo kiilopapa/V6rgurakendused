@@ -20,6 +20,9 @@ table {
 	margin-right: auto;
 }
 
+.tips {
+	display: none;
+}
 
 p {
 	text-align: center;

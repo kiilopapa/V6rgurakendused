@@ -4,6 +4,16 @@
 		<input type="password" name="pass" placeholder="password"/><br/>
 		<input type="submit" value="Log in!"/>
 	</form>
+	<div class="tips">
+
+		****************************************
+		retsenseerijatele:
+		admin - password
+		user - password
+		****************************************
+
+
+	</div>
 	<?php if (isset($errors)):?>
 		<?php foreach($errors as $error):?>
 			<div class="error" ><?php echo htmlspecialchars($error); ?></div>
